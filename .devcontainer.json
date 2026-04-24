@@ -1,0 +1,16 @@
+{
+	"$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
+	"image": "mcr.microsoft.com/devcontainers/base:debian",
+	"features": { "ghcr.io/devcontainers-extra/features/bun:1": {} },
+	"postCreateCommand": "bun install",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"biomejs.biome",
+				"bradlc.vscode-tailwindcss",
+				"svelte.svelte-vscode"
+			]
+		}
+	},
+	"forwardPorts": [4173, 5173]
+}
