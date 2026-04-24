@@ -1,5 +1,8 @@
 {
 	"name": "gearsniper",
+	"description": "A marketplace and community for gaming PCs and components.",
+	"author": "Khalid Alansary <khaled.ansary2003@outlook.com>",
+	"license": "AGPL-3.0-or-later",
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
