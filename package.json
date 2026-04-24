@@ -10,12 +10,15 @@
 		"prepare": "playwright install && svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "bun run --bun biome check",
+		"lint:fix": "bun run --bun biome check --write",
 		"test:e2e": "playwright test",
 		"test": "bun run test:e2e",
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build"
 	},
 	"devDependencies": {
+		"@biomejs/biome": "2.4.13",
 		"@chromatic-com/storybook": "^5.1.2",
 		"@inlang/paraglide-js": "^2.15.2",
 		"@playwright/test": "^1.59.1",

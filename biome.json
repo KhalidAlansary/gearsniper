@@ -1,0 +1,39 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"files": { "includes": ["**", "!sst-env.d.ts"] },
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"formatter": {
+		"includes": ["**", "!./static/"]
+	},
+	"css": {
+		"parser": { "tailwindDirectives": true }
+	},
+	"linter": {
+		"rules": {
+			"a11y": {
+				"useValidLang": "off"
+			}
+		}
+	},
+	"overrides": [
+		{
+			"includes": ["**/*.svelte"],
+			"linter": {
+				"rules": {
+					"style": {
+						"useConst": "off",
+						"useImportType": "off"
+					},
+					"correctness": {
+						"noUnusedVariables": "off",
+						"noUnusedImports": "off"
+					}
+				}
+			}
+		}
+	]
+}
