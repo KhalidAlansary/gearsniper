@@ -1,0 +1,58 @@
+name: Teardown PR Preview Environment
+
+on:
+  pull_request:
+    types: [closed]
+  workflow_dispatch:
+    inputs:
+      stage:
+        description: "Stage name to remove (e.g. pr-123)"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  deployments: write
+
+env:
+  STAGE_NAME: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.event.inputs.stage }}
+
+concurrency:
+  group: sst
+  cancel-in-progress: false
+
+jobs:
+  teardown:
+    name: Teardown Preview Environment
+    if: github.actor != 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Cache Bun dependencies
+        uses: actions/cache@v5
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+
+      - name: Install dependencies
+        run: bun ci
+
+      - name: Remove SST stage
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: bun sst remove --stage ${{ env.STAGE_NAME }}
+
+      - name: Deactivate GitHub deployments
+        uses: strumwolf/delete-deployment-environment@v3
+        with:
+          token: ${{ github.token }}
+          environment: preview-${{ env.STAGE_NAME }}
+          onlyRemoveDeployments: true
