@@ -18,7 +18,7 @@ export default $config({
 			assets: { directory: ".svelte-kit/cloudflare" },
 			handler: ".svelte-kit/cloudflare/_worker.js",
 			link: [bucket, db],
-			compatibility: { date: "2026-04-24" },
+			compatibility: { date: "2026-05-13" },
 			url: true,
 			transform: {
 				worker(args) {
