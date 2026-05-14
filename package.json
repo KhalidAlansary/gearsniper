@@ -20,7 +20,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.4.15",
-		"@chromatic-com/storybook": "^5.1.2",
+		"@chromatic-com/storybook": "^5.2.1",
 		"@inlang/paraglide-js": "^2.18.0",
 		"@playwright/test": "^1.60.0",
 		"@storybook/addon-a11y": "^10.3.6",
