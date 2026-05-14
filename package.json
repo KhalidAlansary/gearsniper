@@ -27,7 +27,7 @@
 		"@storybook/addon-docs": "^10.3.6",
 		"@storybook/addon-svelte-csf": "^5.1.2",
 		"@storybook/addon-vitest": "^10.3.6",
-		"@storybook/sveltekit": "10.3.6",
+		"@storybook/sveltekit": "10.4.0",
 		"@sveltejs/adapter-cloudflare": "^7.2.8",
 		"@sveltejs/kit": "^2.59.1",
 		"@sveltejs/vite-plugin-svelte": "^7.1.2",
