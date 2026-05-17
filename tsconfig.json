@@ -9,6 +9,8 @@
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"sourceMap": true,
+
+		// Missing features in biome's experimental svelte support
 		"noUnusedLocals": true,
 
 		// Extra safety
