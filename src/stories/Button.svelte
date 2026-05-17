@@ -31,10 +31,10 @@ let style = $derived(
 </script>
 
 <button
-  type="button"
-  class={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-  {style}
-  {...props}
+	type="button"
+	class={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+	{style}
+	{...props}
 >
-  {label}
+	{label}
 </button>
