@@ -33,7 +33,7 @@
 		"@sveltejs/vite-plugin-svelte": "^7.1.2",
 		"@tailwindcss/vite": "^4.3.0",
 		"@types/node": "^25",
-		"@vitest/browser-playwright": "^4.1.6",
+		"@vitest/browser-playwright": "^4.1.7",
 		"@vitest/coverage-v8": "^4.1.6",
 		"playwright": "^1.60.0",
 		"storybook": "^10.4.0",
